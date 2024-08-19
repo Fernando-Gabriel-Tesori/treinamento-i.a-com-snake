@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background-color: #2c3e50;
+            font-family: 'Arial', sans-serif;
+        }
+        canvas {
+            display: none; /* Canvas ficará oculto até o jogo começar */
+            border: 10px solid #ecf0f1;
+            background-color: #34495e;
+            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5);
+        }
+        h1, label, #startScreen, #gameOverScreen {
+            color: #ecf0f1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        #startScreen, #gameOverScreen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #startButton, #restartButton {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #startButton:hover, #restartButton:hover {
+            background-color: #27ae60;
+        }
+        #gameOverScreen {
+            display: none; /* Tela de Game Over estará oculta até ocorrer o Game Over */
+        }
+    </style>
+</head>
+<body>
+    <div id="startScreen">
+        <h1>Snake Game</h1>
+        <label for="speed">Select Speed:</label>
+        <select id="speed">
+            <option value="150">Slow</option>
+            <option value="100" selected>Normal</option>
+            <option value="50">Fast</option>
+        </select>
+        <button id="startButton">Start Game</button>
+    </div>
+    <div id="gameOverScreen">
+        <h1>Game Over</h1>
+        <p>Score: <span id="finalScore">0</span></p>
+        <button id="restartButton">Restart Game</button>
+    </div>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <script src="snake.js"></script>
+</body>
+</html>
